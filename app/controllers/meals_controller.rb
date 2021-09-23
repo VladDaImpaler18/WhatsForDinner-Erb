@@ -3,6 +3,8 @@ class MealsController < ApplicationController
   end
 
   def show
+    title = params.require(:title).downcase
+    @meal = Meal.find_by(:title=>title)
   end
 
   def discover

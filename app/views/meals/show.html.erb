@@ -1,2 +1,17 @@
 <h1>Meals#show</h1>
 <p>Find me in app/views/meals/show.html.erb</p>
+<h2><%= @meal.title %></h2>
+<h3><%= @meal.category %></h3>
+<ul>
+<% @meal.ingredients.each do |ingredient,amount| %>
+    <li><%= "#{amount} #{ingredient}" %></li>
+<% end %>
+</ul>
+<ol>
+<% @meal.instructions.each do |instruction| %>
+    <li> <%= instruction %> </li>
+<% end %>
+</ol>
+
+<%= render partial: 'layouts/error_messages', locals: {object: @meal} %>
+
