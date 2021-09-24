@@ -1,2 +1,11 @@
 <h1>Meals#import</h1>
 <p>Find me in app/views/meals/import.html.erb</p>
+<br>
+<p>Enter URL of recipe to import</p>
+<%= form_with url: meals_import do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit %>
+<% end %>
+<%= render partial: 'meals/form', locals: {object: @meal} %>

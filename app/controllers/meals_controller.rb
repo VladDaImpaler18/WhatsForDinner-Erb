@@ -11,6 +11,7 @@ class MealsController < ApplicationController
   end
 
   def import
+    @meal = Meal.new
   end
 
   def create
