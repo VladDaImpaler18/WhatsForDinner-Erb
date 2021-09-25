@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore Schema
-/db/schemba.rb
+db/schema.rb
 
 # Ignore bundler config.
 /.bundle
@@ -39,3 +39,4 @@ Gemfile.lock
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
