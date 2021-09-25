@@ -11,7 +11,12 @@ class MealsController < ApplicationController
   end
 
   def import
-    @meal = Meal.new
+    url = params.require(:url)
+    data = Scrapers::FoodNetwork.grab(url)
+    args={}
+    Meal.new.attributes.symbolize_keys.each { |k,v| args[k]=data[k]}
+    @meal = Meal.new(args) || Meal.new
+    
   end
 
   def create

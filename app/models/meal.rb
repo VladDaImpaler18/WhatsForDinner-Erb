@@ -1,4 +1,5 @@
 class Meal < ApplicationRecord
+    extend Scrapers::FoodNetwork
     validates :title, presence: true
     validates :title, uniqueness: true
     validates_with MealsValidator, fields: [:instructions, :ingredients]
