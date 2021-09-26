@@ -3,7 +3,7 @@ module Scrapers
     module FoodNetwork
     attr_accessor :payload, :error
 
-        def grab(url)
+        def self.grab(url)
             check_url(url)
             scrape_data(url)
             @payload
@@ -13,12 +13,11 @@ module Scrapers
         #     @error.empty?
         # end
 
-    private
+    protected
 
-        def scrape_data(url)
+        def self.scrape_data(url)
             #ingredients will be entire line, later it will be broken to a hash
             ingredients = []
-            directions = []
             instructions = []
             directions = []
             begin
@@ -72,12 +71,12 @@ module Scrapers
             end
         end
 
-        def set_error(error_msg)
+        def self.set_error(error_msg)
             @error = error_msg
             puts @error
         end
 
-        def check_url(url)
+        def self.check_url(url)
         raise "InputNeeded" if url.empty?
         raise "MustBeString" unless url.class == String
         end
