@@ -1,23 +1,28 @@
-<%= form_for meal do |f| %>
+<div>
+<%= form_with model: meal do |f| %>
 <%# title:sting, category:sting, area:sting, instructions:json image:binary, tags:json, ingredients:json, source:string%>
     <%= f.label :title %>
     <%= f.text_field :title %>
-    
+    <br>
     <%= f.label :category %>
     <%= f.text_field :category %>
-
+    <br>
+    <%= f.label :instructions %>
     <%= f.text_area :instructions %>
-
+    <br>
     <%= f.label :tags %>
-
+    <%= f.text_field :tags %>
+    <br>
     <%# Incredients section is broken into two parts%>
     <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %>
+    <%= f.text_area :ingredients %>
+    <br>
     <%# Text field with amount | Text field for ingredient %>
 
     <%= f.label :source %>
     <%= f.text_field :source %>
-
+    <br>
     <%= f.submit %>
 
 <% end %>
+</div>
