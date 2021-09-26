@@ -7,17 +7,35 @@
     <%= f.label :category %>
     <%= f.text_field :category %>
     <br>
+    <%# Incredients section is broken into two parts%>
+    <%= f.label :ingredients %>
+    <ul>
+    <% if meal[:ingredients].nil?%>
+        <li><%= f.text_field :ingredients %></li>
+    <% else %>
+        <% meal[:ingredients].each do |ingredient| %>
+            <li><%= f.text_field ingredient %></li>
+        <% end %>
+    <% end %>
+    </ul>
+
     <%= f.label :instructions %>
-    <%= f.text_area :instructions %>
+    <ol>
+    <% if meal[:instructions].nil?%>
+        <%= f.text_field :instructions %>
+    <% else %>
+        <% meal[:instructions].each do |instruction|%>
+        <li> <%= f.text_area instruction %> </li>
+        <% end %>
+    <% end %>
+    </ol>
+
     <br>
     <%= f.label :tags %>
     <%= f.text_field :tags %>
     <br>
-    <%# Incredients section is broken into two parts%>
-    <%= f.label :ingredients %>
-    <%= f.text_area :ingredients %>
+    
     <br>
-    <%# Text field with amount | Text field for ingredient %>
 
     <%= f.label :source %>
     <%= f.text_field :source %>

@@ -1,0 +1,10 @@
+<p>Enter URL of recipe to import</p>
+<%= form_with url: "/import/new" do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "import" %>
+<% end %>
+<br>
+<p>OR enter information below</p>
+<%= render partial: 'meals/form', locals: {meal: @meal} %>
